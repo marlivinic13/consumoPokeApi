@@ -6,7 +6,7 @@ function sortNum(min, max) {
 async function sortPoke(event) {
     event.preventDefault()
 
-    const idIn = Number(sortNum(0,1302)) //document.getElementById("nameInput").value //pegar o valor do elemento a parti do seu id 
+    const idIn = Number(sortNum(0, 1000)) //document.getElementById("nameInput").value //pegar o valor do elemento a parti do seu id 
     const nameOut = document.getElementById("namePoke")//elemento de saida com o nome do pokemon
     const imgOut = document.getElementById("imgPoke")//elemento de saida com a imagem do pokemon
     const listMovs = document.getElementById("lMov")//elemento de saída dos movimentos do pokemon
@@ -24,19 +24,19 @@ async function sortPoke(event) {
     var key = "" //cria variável key do tipo String
     var qtdMov = 0 //cria variável qtd do tipo int
     //saber quantos movimentos aquele pokemon tem
-    for(key in data.moves){ //para cada chaves em movimentos do pokemon...
-        qtdMov+=1 //eu somo 1 à variável qtd
+    for (key in data.moves) { //para cada chaves em movimentos do pokemon...
+        qtdMov += 1 //eu somo 1 à variável qtd
     }
 
     var sorte = 0
     var mov = 0
-    listMovs.textContent=""
+    listMovs.textContent = ""
     //sortear 4 habilidades do pokemon escolhido 
-    for(var i = 1; i <= 4; i++ ){
-        sorte = sortNum(0,qtdMov-1)
+    for (var i = 1; i <= 4; i++) {
+        sorte = sortNum(0, qtdMov - 1)
         mov = data.moves[sorte].move.name
 
-        const li = document.createElement("li") 
+        const li = document.createElement("li")
         li.textContent = mov
 
         listMovs.appendChild(li)
